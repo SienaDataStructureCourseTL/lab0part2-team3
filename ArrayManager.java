@@ -15,7 +15,7 @@
  * Debug (DO NOT WRITE YOUR OWN) the methods so they work as required.  
  * Bugs may include logic errors, syntax errors, and/or runtime errors.
  *
- * @author Prof. White, modified by (your names)
+ * @author Prof. White, modified by (Daniel Graham and Andrew Lin)
  * @version Lab 0, Fall 2019
  */
 public class ArrayManager
@@ -31,7 +31,7 @@ public class ArrayManager
 
     /**
      * Constructs an ArrayManager object with the
-     * input number of elements in and integer array.
+     * input number of elements in and integer array.=/
      * 
      * @param numElements - The number of elements that
      * the array will contain after construction.  Each
@@ -39,6 +39,10 @@ public class ArrayManager
      */
     public ArrayManager(int numElements)
     {
+        iArr = new int[numElements];
+        for (int i = 0; i < numElements; i++){
+            iArr[i] = -999;
+        }
         nextAvailable = 0;
     }
 
@@ -52,8 +56,13 @@ public class ArrayManager
      */
     public void addElement(int value)
     {
-        iArr[nextAvailable] = value;
-        nextAvailable++;
+        if (nextAvailable == iArr.length){
+            return ;
+        }
+        else{
+            iArr[nextAvailable] = value;
+            nextAvailable++;
+        }
     }
 
     /**
@@ -74,7 +83,7 @@ public class ArrayManager
         // Hint: there are two errors in the for loop header
         if(nextAvailable < iArr.length && location <= nextAvailable)
         {
-            for(int i = iArr.length; i > location; i++)
+            for(int i = iArr.length-1; i > location; i--)
             {
                 iArr[i] = iArr[i - 1];
             }
@@ -101,15 +110,18 @@ public class ArrayManager
         // Hint: there are 2 errors in this method. One of the errors is in the for loop body.
         int value;
 
-        if(location < nextAvailable)
+        if( (0 <= location) && (location < iArr.length))
         {
             value = iArr[location];
-            for(int i = location; i < nextAvailable - 1; i++)
+            for(int i = location; i < nextAvailable -1; i++)
             {
-                iArr[i] = iArr[i - 1];
+                iArr[i] = iArr[i + 1];
             }
             nextAvailable--;
             iArr[nextAvailable] = -999;
+        }
+        else{
+            value = -999;
         }
 
         return value;

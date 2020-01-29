@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * This class is used to perform a unit test on the
  * ArrayPractice class.  
@@ -59,6 +61,45 @@ public class UnitTestArrayPractice
         System.out.print("Actual:    Lengths:  ");
         printArray(ArrayPractice.stringLengths(sArr));
         System.out.println("\n***End test ArrayPractice.stringLengths(String[])***\n");
+
+        //Other Tests
+        Random gen = new Random();
+        Double dArr2[] = new Double[gen.nextInt(5) + 6];
+        Integer iArr2[] = new Integer[gen.nextInt(5) + 6];
+
+        //Assign values to arrays
+        for (int i = 0; i < dArr2.length; i++){
+            dArr2[i] = gen.nextDouble()*5.0 - 2.0;
+        }
+        for (int i = 0; i < iArr2.length; i++){
+            iArr2[i] = gen.nextInt(21) - 10;
+        }
+
+        //Test 0
+        System.out.println("***Testing ArrayPractice.sum(Double[])***\n");
+        printArray(dArr2);
+        System.out.println("Actual:    Sum of elements:  " + ArrayPractice.sum(dArr2));
+        System.out.println("\n***End test ArrayPractice.sum(Double[])***\n");
+
+        //Test 1
+        System.out.println("***Testing ArrayPractice.sum(Integer[])***\n");
+        printArray(iArr2);
+        System.out.println("Actual:    Sum of elements:  " + ArrayPractice.sum(iArr2));
+        System.out.println("\n***End test ArrayPractice.sum(Integer[])***\n");
+
+        //Test 2
+        System.out.println("***Testing ArrayPractice.largest(Integer[])***\n");
+        printArray(iArr2);
+        System.out.println("Actual:    Largest:  " + ArrayPractice.largest(iArr2));
+        System.out.println("\n***End test ArrayPractice.largest(Integer[])***\n");
+
+        //Test 3
+        System.out.println("***Testing ArrayPractice.countLarger(Integer[], int)***\n");
+        System.out.print("values larger than " + iArr2[0] + " in ");
+        printArray(iArr2);
+        System.out.println("Actual:    Larger:  " + ArrayPractice.countLarger(iArr2, iArr2[0]));
+        System.out.println("\n***End test ArrayPractice.countLarger(Integer[], int)***\n");
+
     }
 
     /**
