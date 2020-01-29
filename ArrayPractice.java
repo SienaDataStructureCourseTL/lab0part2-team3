@@ -116,8 +116,13 @@ public class ArrayPractice
      */
     public static Integer[] stringLengths(String arr[])
     {
-        
-        return null;
+        Integer[] countArr = new Integer[arr.length];
+        for (int i = 0; i < arr.length; i++)
+        {
+            int stringLength = arr[i].length();
+            countArr[i] = stringLength;
+        }
+        return countArr;
     }
     
 }
