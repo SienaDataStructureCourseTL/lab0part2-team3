@@ -4,8 +4,8 @@
  * Complete each of the following methods according to the method comments.
  * DO NOT CHANGE THE METHOD HEADERS.
  *
- * @author (your names)
- * @version (a version number or a date)
+ * @author (Andrew Lin, Daniel Graham)
+ * @version (1/28/2020)
  */
 public class ArrayPractice
 {
@@ -17,7 +17,12 @@ public class ArrayPractice
      */
     public static double sum(Double arr[])
     {
-        return -1.0;
+        double arraySum = 0;
+        for (int i = 0; i < arr.length; i++)
+        {
+            arraySum = arraySum + arr[i];
+        }
+        return arraySum;
     }
 
     /**
@@ -28,7 +33,12 @@ public class ArrayPractice
      */
     public static int sum(Integer arr[])
     {
-        return -1;
+        int arraySum = 0;
+        for (int i = 0; i < arr.length; i++)
+        {
+            arraySum = arraySum + arr[i];
+        }
+        return arraySum;
     }
     
     /**
@@ -39,7 +49,15 @@ public class ArrayPractice
      */
     public static int largest(Integer arr[])
     {
-        return -1;
+        int largest = arr[0];
+        for (int i = 0; i < arr.length; i++)
+        {
+         if (arr[i] > largest)
+            {
+               largest = arr[i]; 
+            }
+        }
+        return largest;
     }
     
     /**
@@ -53,7 +71,16 @@ public class ArrayPractice
      */
     public static int countLarger(Integer arr[], int value)
     {
-        return -1;
+        int countLarger = 0;
+        int compareNum = value;
+        for (int i = 0; i < arr.length; i++)
+        {
+          if(arr[i] > compareNum)
+          {
+             countLarger++;
+          }
+        }
+        return countLarger;
     }
     
     /**
@@ -66,7 +93,15 @@ public class ArrayPractice
      */
     public static int countTrue(Boolean arr[])
     {
-        return -1;
+        int countTrue = 0;
+        for (int i = 0; i < arr.length; i++)
+        { 
+            if (arr[i] == true)
+            {
+                countTrue++;
+            }
+        }
+        return countTrue;
     }
     
     /**
@@ -81,6 +116,7 @@ public class ArrayPractice
      */
     public static Integer[] stringLengths(String arr[])
     {
+        
         return null;
     }
     
